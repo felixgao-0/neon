@@ -11,7 +11,18 @@ import framebufferio
 import rgbmatrix
 import terminalio
 
-import requests
+import adafruit_connection_manager
+import wifi
+
+import adafruit_requests
+
+ssid = os.getenv("CIRCUITPY_WIFI_SSID")
+password = os.getenv("CIRCUITPY_WIFI_PASSWORD")
+
+pool = adafruit_connection_manager.get_radio_socketpool(wifi.radio)
+ssl_context = adafruit_connection_manager.get_radio_ssl_context(wifi.radio)
+requests = adafruit_requests.Session(pool, ssl_context)
+rssi = wifi.radio.ap_info.rssi
 
 # Setup start
 # Leave as 1 unless scrolling felix, bigger = faster scrolling in the loop
