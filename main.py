@@ -46,9 +46,9 @@ displayio.release_displays()
 
 matrix = rgbmatrix.RGBMatrix(
     width=64, height=32, bit_depth=1,
-    rgb_pins=[board.D6, board.D5, board.D9, board.D11, board.D10, board.D12],
-    addr_pins=[board.A5, board.A4, board.A3, board.A2],
-    clock_pin=board.D13, latch_pin=board.D0, output_enable_pin=board.D1)
+    rgb_pins=[board.IO1, board.IO2, board.IO3, board.IO5, board.IO4, board.IO6],
+    addr_pins=[board.IO8, board.IO7, board.IO10, board.IO9],
+    clock_pin=board.IO12, latch_pin=board.IO11, output_enable_pin=board.IO13)
 
 display = framebufferio.FramebufferDisplay(matrix, auto_refresh=True)
 
